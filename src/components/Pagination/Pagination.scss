@@ -1,0 +1,68 @@
+/** @format */
+
+@import "../../styles//root";
+
+.column {
+  position: relative;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+
+  &__icon{
+    background-color: #DFCFBE;
+  }
+
+  &__prev {
+    @include paginationStyle;
+    transform: rotate(180deg);
+  }
+
+  &__number_selected {
+    @include paginationStyle;
+    border-radius: 50%;
+    background: linear-gradient(to right, rgb(226, 98, 98), purple);
+    padding: 3px;
+    box-shadow: 0px 1px 15px rgb(110, 98, 98);
+
+    &:hover {
+      background: linear-gradient(to right, purple, rgb(226, 98, 98));
+    }
+
+    &__child {
+      background-image: linear-gradient(to right, #6f7c85, #8c9da9);
+      color: white;
+      border-radius: 50%;
+      @include paginationStyle;
+      height: 95%;
+      width: 95%;
+      overflow: hidden;
+
+      @include media(until-mobile) {
+        height: 93%;
+        width: 93%;
+      }
+      &:hover {
+        background-image: linear-gradient(to right, #8c9da9, #6f7c85);
+      }
+    }
+  }
+
+  &__number_unselect {
+    @include paginationStyle;
+    border-radius: 50%;
+    color: white;
+    box-shadow: 0px 1px 15px rgb(179, 175, 175);
+    margin: 0 4px;
+    user-select: none;
+
+    &:hover {
+      box-shadow: 0px 1px 15px white;
+    }
+  }
+
+  &__next {
+    @include paginationStyle;
+  }
+}

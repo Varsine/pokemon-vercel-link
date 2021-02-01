@@ -1,0 +1,11 @@
+{
+  "name": "Kristobad",
+  "short_name": "Kristobad",
+  "description": "Kristobad",
+  "theme_color": "#20a0e4",
+  "background_color": "#20a0e4",
+  "display": "standalone",
+  "Scope": "/",
+  "start_url": "/",
+  "splash_pages": null
+}

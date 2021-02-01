@@ -1,0 +1,24 @@
+/** @format */
+
+@import "../../styles/root";
+
+.app {
+  background-image: linear-gradient(to right, #708090, #36454f);
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 1px 15px rgb(110, 98, 98);
+
+  &__basis {
+    color: $white;
+    padding: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    @include media(until-mobile){
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+  }
+}

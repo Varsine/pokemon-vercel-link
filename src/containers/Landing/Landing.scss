@@ -1,0 +1,236 @@
+/** @format */
+
+@import "../../styles/root";
+
+.column {
+  min-height: calc(100vh+ (-96px));
+  background-image: url('/landingBg.jpg');
+  position: absolute;
+  overflow-y: scroll;
+  top: 90px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+
+  @include media(until-mobile){
+    top: 200px;
+  }
+  
+  &__flip_card {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 50px;
+    row-gap: 50px;
+    z-index: 999;
+
+    @include media(until-tablet){
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include media(until-mobile){
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media(mobile){
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    &__basis{
+      border: 1px solid transparent;
+      perspective: 1000px;
+
+      &__inner {
+        animation: getDataItem 0.8s alternate linear;
+        position: relative;
+        height: 350px;
+        text-align: center;
+        transition: transform 0.6s;
+        margin-top: 40px;
+        transform-style: preserve-3d;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        cursor: pointer;
+          
+        @include media(until-mobile) {
+          height: 200px;
+        }
+  
+        &__front {
+          @include flipCardFrontAndBack;
+          background-color:  #9896A4;
+          border-radius: 10px;
+          overflow: hidden;
+
+          &__spinner_one{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #0c002b, #1779ff, #92B6D5, #fff);
+            animation: spinnerOne 2s linear infinite;
+          }
+
+          &__spinner_two{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #0c002b, #1779ff, #92B6D5, #fff);
+            animation: spinnerTwo 2s linear infinite;
+          }
+
+          &__spinner_three{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to left, #0c002b, #1779ff, #92B6D5, #fff);
+            animation: spinnerThree 2s linear infinite;
+          }
+
+          &__spinner_four{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to top, #0c002b, #1779ff, #92B6D5, #fff);
+            animation: spinnerFour 2s linear infinite;
+          }
+
+          &__img {
+            width: 200px;
+            height: 200px;
+
+            @include media(until-mobile) {
+              width: 50px;
+              height: 50px;
+            }
+          }
+
+          &__right_column {
+            margin: 0;
+            padding: 0;
+  
+            @include media(until-mobile) {
+              width: 100%;
+            }
+  
+            &__name {
+              font-size: $body-text;
+              text-transform: uppercase;
+              color: #fff;
+              opacity: 0.8;
+            }
+  
+            &__types {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              @include media(until-tablet) {
+                flex-wrap: wrap;
+              }
+              
+              @include media(until-mobile) {
+              }
+
+              &__type {
+                color: $white;
+                background-image: linear-gradient(to right, #F7CAC9, #B565A7);
+                border-radius: 15px;
+                margin: 20px 10px 10px;
+                width: 100px;
+                padding: 10px 20px;
+                border-radius: 16px;
+                animation: buttonAnimation 2s alternate infinite;
+
+                @include media(until-desktop) {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+  
+        &__back {
+          @include flipCardFrontAndBack;
+          transform: rotateY(180deg);
+          background-color: #2E4A62;
+          color: #fff;
+          opacity: 0.8;
+  
+          &__text {
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes getDataItem {
+  0% {
+    opacity: 0;
+    margin-top: 0px;
+  }
+
+  100% {
+    opacity: 1;
+    margin-top: 40px;
+  }
+}
+
+.column__flip_card__basis:hover .column__flip_card__basis__inner {
+  transform: rotateY(180deg);
+}
+
+@keyframes spinnerOne{
+  0%{
+    transform: translateX(-100%);
+  }
+  100%{
+    transform: translateX(100%);
+  }
+}
+
+@keyframes spinnerTwo{
+  0%{
+    transform: translateY(-100%);
+  }
+  100%{
+    transform: translateY(100%);
+  }
+}
+
+@keyframes spinnerThree{
+  0%{
+    transform: translateX(100%);
+  }
+  100%{
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes spinnerFour{
+  0%{
+    transform: translateY(100%);
+  }
+  100%{
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes buttonAnimation{
+  0%{
+    box-shadow: 0px 0px 20px #F7CAC9;
+  }
+  100%{
+    box-shadow: 0px 0px 30px #B565A7;
+  }
+}

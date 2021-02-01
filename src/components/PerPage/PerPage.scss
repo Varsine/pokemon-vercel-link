@@ -1,0 +1,73 @@
+/** @format */
+
+@import "../../styles/root";
+
+.column {
+  color: $text;
+  font-size: $intro-text;
+  border-radius: 15px;
+  padding: 15px;
+
+  background-image: linear-gradient(to right, #f7f7f7, #dddddd);
+
+  @include media(until-mobile) {
+    padding: 10px;
+  }
+
+  &:hover {
+    background-image: linear-gradient(to right, #dddddd, #f7f7f7);
+  }
+
+  &__count {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &__value {
+      padding-right: 10px;
+    }
+  }
+
+  &__select_close {
+    display: none;
+  }
+
+  &__select_open {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end;
+
+    &__inner {
+      position: absolute;
+      display: block;
+      right: 20px;
+      top: 75px;
+      background-color: $sec;
+      border-radius: 15px;
+      overflow: hidden;
+      z-index: 1000;
+      @include media(until-mobile) {
+        left: 10px;
+        top: 190px;
+        right: auto;
+      }
+      &__option {
+        width: 100%;
+        padding: 10px 25px;
+        cursor: pointer;
+
+        &:hover {
+          background-image: linear-gradient(to right, #76b4bd, $primary);
+        }
+
+        &:active {
+          background-image: linear-gradient(to right, $primary, #58668b);
+        }
+      }
+    }
+  }
+}

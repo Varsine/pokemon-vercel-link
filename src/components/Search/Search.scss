@@ -1,0 +1,28 @@
+/** @format */
+
+@import "../../styles/root";
+
+.column {
+  background-image: linear-gradient(to right, #f7f7f7, #dddddd);
+  border-radius: 25px;
+  padding: 16px;
+  color: $text;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include media(until-mobile) {
+    width: 100%;
+    margin: 10px 0;
+  }
+  &__input {
+    font-size: $body-text;
+    letter-spacing: 0.0015em;
+    padding-right: 8px;
+    width: 100%;
+    background: none;
+  }
+
+  &:hover {
+    background-image: linear-gradient(to right, #dddddd, #f7f7f7);
+  }
+}
